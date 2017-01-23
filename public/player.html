@@ -1,0 +1,14 @@
+<div ng-controller="PlayerController">
+  <p>Music Player</p>
+  <div ng-repeat="album in albums">
+    <div>
+      {{album.album}}
+    </div>
+    <div>
+      {{'By: ' + album.artist}}
+    </div>
+    <ul>
+      <li ng-repeat="song in album.songs">{{song.title}}</li>
+    </ul>
+  </div>
+</div>

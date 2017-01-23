@@ -1,0 +1,21 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "Blues Music Application",
+  "scripts": {
+    "test": "mocha spec/appSpec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/derek-young/hrsf53-mvp.git"
+  },
+  "author": "Derek Young",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/derek-young/hrsf53-mvp/issues"
+  },
+  "homepage": "https://github.com/derek-young/hrsf53-mvp#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
