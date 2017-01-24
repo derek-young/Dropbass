@@ -8,13 +8,16 @@
         url: '/signin',
         data: user
       })
-      .then(function (resp) {
-        return resp.data.token;
+      .then((res) => {
+        return res.data.token;
+      })
+      .catch((err) => {
+        return err.status;
       });
     };
 
     const isAuth = function () {
-      return !!$window.localStorage.getItem('com.blues');
+      return $window.localStorage.getItem('com.blues') !== null && $window.localStorage.getItem('com.blues') !== undefined;
     };
 
     const signout = function () {

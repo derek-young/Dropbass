@@ -17,13 +17,9 @@ var User = sequelize.define('user', {
   password: Sequelize.STRING
 });
 
-sequelize.sync({force: true}).then(function() {
-  return User.create({
-    username: 'dthomasy@gmail.com',
-    password: 'young'
-  });
-}).then(function(user) {
-  console.log(user);
-});
+User.generateHash = (password) => {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(8));
+};
 
-module.exports = sequelize;
+module.exports.user = User;
+module.exports.db = sequelize;

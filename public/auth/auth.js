@@ -4,15 +4,16 @@
   AUTH.controller('AuthController', function ($scope, $window, $location, Auth) {
     $scope.user = {};
 
-    $scope.signin = function () {
+    $scope.signin = () => {
       Auth.signin($scope.user)
-        .then(function (token) {
-          $window.localStorage.setItem('com.blues', token);
-          $location.path('/authorized');
+        .then((token) => {
+          if (token !== 403) {
+            $window.localStorage.setItem('com.blues', token);
+            return $location.path('/authorized');
+          }
+          $scope.errorMessage = 'Invalid username or password';
         })
-        .catch(function (error) {
-          console.error(error);
-        });
+        .catch((error) => console.error(error));
     };
   });
 })();

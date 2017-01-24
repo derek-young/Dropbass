@@ -23,6 +23,21 @@ h2 {
   font-size: 60px;
 }
 
+#signin input {
+  box-shadow: none;
+  border-radius: 3px;
+  border: 1px solid #d8d8d8;
+  height: 30px;
+  width: 200px;
+  font-size: 14px;
+  padding: 0 5px;
+  margin-bottom: 5px;
+}
+
+#audio-player {
+  margin-top: 20px;
+}
+
 .container {
   width: 700px;
   margin: 20px auto;
@@ -39,10 +54,6 @@ h2 {
 .songs-view {
   width: 150px;
   margin: 22px;
-}
-
-#audio-player {
-  margin-top: 20px;
 }
 
 .logout, .btn {
@@ -74,7 +85,7 @@ h2 {
 }
 
 .signin-button {
-  width: 35px;
+  width: 80px;
 }
 
 .logout:hover, .btn:hover {
@@ -87,5 +98,10 @@ h2 {
 }
 
 .artist {
+  font-size: 12px;
+}
+
+.error {
+  color: red;
   font-size: 12px;
 }

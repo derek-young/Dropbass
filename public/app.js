@@ -14,7 +14,7 @@
         })
         .otherwise({
           templateUrl: 'player.html',
-          controller: 'AuthController'
+          controller: 'PlayerController'
         });
 
       $httpProvider.interceptors.push('AttachTokens');
