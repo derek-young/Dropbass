@@ -3,14 +3,24 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
-const db = require('./database.js').db;
+const helpers = require('./http-helpers.js');
 const User = require('./database.js').user;
+
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.use(express.static('../public'));
+
+app.get('/api/songs', function(req, res, next) {
+  res.setHeader('Content-Type', 'application/json');
+  helpers.getSongs(res);
+});
+
+app.get('/authorized', function(req, res, next) {
+  res.redirect('/');
+});
 
 app.post('/signin', function(req, res, next) {
   User.findOne({
@@ -23,10 +33,6 @@ app.post('/signin', function(req, res, next) {
     }
     return res.sendStatus(403);
   });
-});
-
-app.get('/authorized', function(req, res, next) {
-  res.redirect('/');
 });
 
 module.exports = app;

@@ -2,7 +2,12 @@
   const PLAYER = angular.module('blues.player', []);
 
   PLAYER.controller('PlayerController', function ($scope, Songs, Auth) {
-    $scope.albums = Songs.albums;
+    $scope.albums = {};
+
+    Songs.getSongs().then((res) => {
+      console.log(res);
+    });
+
     $scope.songSelected = false;
     $scope.currentSongURL = null;
 
@@ -21,29 +26,44 @@
     $scope.signout = Auth.signout;
   });
 
-  PLAYER.factory('Songs', function() {
+  PLAYER.factory('Songs', function($http) {
     return {
-      albums: [
-        {
-          artist: 'Zeds Dead & Omar LinX',
-          album: 'Victor',
-          albumArt: '/lib/music/Folder.jpg',
-          songs: [
-            {
-              title: 'No Prayers',
-              url: '/lib/music/01.NoPrayers.mp3'
-            },
-            {
-              title: 'The One',
-              url: '/lib/music/02.The One.mp3'
-            },
-            {
-              title: 'You and I',
-              url: '/lib/music/04.You and I.mp3'
-            }
-          ]
-        }
-      ]
+      getSongs: () => {
+        return $http({
+          method: 'GET',
+          url: '/api/songs'
+        })
+        .then((res) => {
+          return res;
+        })
+        .catch((err) => {
+          throw err;
+        });
+      }
     }
+
+    // return {
+    //   albums: [
+    //     {
+    //       artist: 'Zeds Dead & Omar LinX',
+    //       album: 'Victor',
+    //       albumArt: '/lib/music/Folder.jpg',
+    //       songs: [
+    //         {
+    //           title: 'No Prayers',
+    //           url: '/lib/music/01.NoPrayers.mp3'
+    //         },
+    //         {
+    //           title: 'The One',
+    //           url: '/lib/music/02.The One.mp3'
+    //         },
+    //         {
+    //           title: 'You and I',
+    //           url: '/lib/music/04.You and I.mp3'
+    //         }
+    //       ]
+    //     }
+    //   ]
+    // }
   });
 })();
