@@ -2,7 +2,6 @@
     const APP = angular.module('blues', [
       'ngRoute',
       'blues.auth',
-      'blues.services',
       'blues.player'
     ]);
 

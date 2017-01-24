@@ -73,6 +73,8 @@ h2 {
 }
 
 .logout {
+  font-size: 10px;
+  height: 20px;
   position: relative;
   top: -65px;
   float: right;
@@ -80,12 +82,15 @@ h2 {
 }
 
 .btn {
+  text-align: left;
+  font-size: 12px;
+  height: 30px;
   width: 150px;
   margin: 10px 0;
 }
 
 .signin-button {
-  width: 80px;
+  width: 72px;
 }
 
 .logout:hover, .btn:hover {
@@ -104,4 +109,8 @@ h2 {
 .error {
   color: red;
   font-size: 12px;
+}
+
+input.ng-dirty.ng-invalid-email {
+  box-shadow:inset 0 0 10px rgba(255,0,0,1) !important;
 }
