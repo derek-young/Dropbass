@@ -1,14 +1,31 @@
 <div ng-controller="PlayerController">
-  <p>Music Player</p>
-  <div ng-repeat="album in albums">
+  <button class="logout" ng-click="signout()">Logout</button>
+  <p>...drop it from the sky</p>
+  <div ng-repeat="album in albums" class="album">
+    <!--  Album and Song View -->
     <div>
-      {{album.album}}
+      <div class="album-view">
+        <div class="album">
+          {{album.album}}
+        </div>
+        <div class="album-art">
+          <img ng-src="{{album.albumArt}}"/>
+        </div>
+        <div class="artist">
+          {{'By: ' + album.artist}}
+        </div>
+      </div>
+      <div class="songs-view">
+        <button ng-repeat="song in album.songs" ng-click="selectSong(song.url)" class="btn">
+          {{song.title}}
+        </button>
+      </div>
     </div>
-    <div>
-      {{'By: ' + album.artist}}
+    <!--  End Album and Song View -->
+    <div ng-show="songSelected">
+      <audio controls id="audio-player">
+        <source type="audio/mpeg"></source>
+      </audio>
     </div>
-    <ul>
-      <li ng-repeat="song in album.songs">{{song.title}}</li>
-    </ul>
   </div>
 </div>

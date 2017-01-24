@@ -2,7 +2,7 @@
   const SERVICES = angular.module('blues.services', []);
 
   SERVICES.factory('Auth', function ($http, $location, $window) {
-    var signin = function (user) {
+    const signin = function (user) {
       return $http({
         method: 'POST',
         url: '/signin',
@@ -13,11 +13,11 @@
       });
     };
 
-    var isAuth = function () {
+    const isAuth = function () {
       return !!$window.localStorage.getItem('com.blues');
     };
 
-    var signout = function () {
+    const signout = function () {
       $window.localStorage.removeItem('com.blues');
       $location.path('/signin');
     };

@@ -1,13 +1,24 @@
 (function() {
   const PLAYER = angular.module('blues.player', []);
 
-  PLAYER.controller('PlayerController', function ($scope, Songs) {
+  PLAYER.controller('PlayerController', function ($scope, Songs, Auth) {
     $scope.albums = Songs.albums;
     $scope.songSelected = false;
-    $scope.select = () => {
+    $scope.currentSongURL = null;
+
+    $scope.selectSong = (url) => {
       $scope.songSelected = true;
-      console.log();
-    }
+      $scope.currentSongURL = url;
+      $scope.playAudio();
+    };
+
+    $scope.playAudio = () => {
+      const audio = document.getElementById('audio-player');
+      audio.src = $scope.currentSongURL;
+      audio.play();
+    };
+
+    $scope.signout = Auth.signout;
   });
 
   PLAYER.factory('Songs', function() {
@@ -20,7 +31,7 @@
           songs: [
             {
               title: 'No Prayers',
-              url: '/lib/music/01.No Prayers.mp3'
+              url: '/lib/music/01.NoPrayers.mp3'
             },
             {
               title: 'The One',

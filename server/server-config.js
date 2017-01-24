@@ -9,4 +9,8 @@ app.post('/signin', function(req, res, next) {
   res.sendStatus(200);
 });
 
+app.get('/authorized', function(req, res, next) {
+  res.redirect('/');
+});
+
 module.exports = app;
