@@ -73,6 +73,10 @@ h2 {
   margin: 10px 0;
 }
 
+.signin-button {
+  width: 35px;
+}
+
 .logout:hover, .btn:hover {
 	background: linear-gradient(to bottom, #f6f6f6 5%, #FFF 100%);
 	background-color: #f6f6f6;

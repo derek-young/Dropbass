@@ -1,12 +1,12 @@
 <div id="signin">
-  <h4>signin</h4>
+  <h4>Login to begin the magic</h4>
   <form name="signinForm" ng-submit="signin()">
     <div>
-      <input type="text" name="username" ng-model="user.username">
+      <input type="text" name="username" ng-model="user.username" placeholder="Username" required>
     </div>
     <div>
-      <input type="password" name="password" ng-model="user.password">
+      <input type="password" name="password" ng-model="user.password" placeholder="Password" required>
     </div>
-    <button type="submit">signin</button>
+    <button type="submit" class="btn signin-button">Go</button>
   </form>
 </div>
