@@ -2,7 +2,8 @@
     const APP = angular.module('blues', [
       'ngRoute',
       'blues.auth',
-      'blues.player'
+      'blues.player',
+      'blues.services'
     ]);
 
     APP.config(function ($routeProvider, $httpProvider) {

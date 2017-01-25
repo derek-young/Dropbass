@@ -1,31 +1,34 @@
 <div ng-controller="PlayerController">
   <button class="logout" ng-click="signout()">Logout</button>
   <p>...drop it from the sky</p>
-  <div ng-repeat="album in albums" class="album">
+  <div class="album">
     <!--  Album and Song View -->
     <div>
       <div class="album-view">
-        <div class="album">
-          {{album.album}}
-        </div>
         <div class="album-art">
-          <img ng-src="{{album.albumArt}}"/>
+          <img ng-src="{{'/dropbox' + songs[8].path_lower}}"/>
+        </div>
+        <div>
+          {{songs[0].album}}
         </div>
         <div class="artist">
-          {{'By: ' + album.artist}}
+          {{'By: ' + songs[0].artist}}
         </div>
       </div>
       <div class="songs-view">
-        <button ng-repeat="song in album.songs" ng-click="selectSong(song.url)" class="btn">
-          &#9654;&nbsp;&nbsp;&nbsp;{{song.title}}
+        <button
+          ng-repeat="song in songs | songFilter"
+          ng-click="selectSong(song.id)"
+          class="btn">
+          &#9654;&nbsp;&nbsp;{{song.trackNumber + ' ' + song.cleanName}}
         </button>
+      </div>
+      <div class="player-holder" ng-show="songSelected">
+        <audio controls id="audio-player">
+          <source type="audio/mpeg"></source>
+        </audio>
       </div>
     </div>
     <!--  End Album and Song View -->
-    <div ng-show="songSelected">
-      <audio controls id="audio-player">
-        <source type="audio/mpeg"></source>
-      </audio>
-    </div>
   </div>
 </div>

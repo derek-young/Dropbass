@@ -34,26 +34,26 @@ h2 {
   margin-bottom: 5px;
 }
 
-#audio-player {
-  margin-top: 20px;
+.player-holder {
+  /*margin-top: 30px;*/
 }
 
 .container {
-  width: 700px;
+  width: 800px;
   margin: 20px auto;
 }
 
 .album {
-  display: table;
+  margin-top: 30px;
 }
 
-.album-view, .songs-view {
+.player-holder , .album-view, .songs-view {
   float: left;
 }
 
 .songs-view {
   width: 150px;
-  margin: 22px;
+  margin: -10px 35px 0 35px;
 }
 
 .logout, .btn {

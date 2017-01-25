@@ -14,12 +14,18 @@ app.use(bodyParser.json());
 app.use(express.static('../public'));
 
 app.get('/api/songs', function(req, res, next) {
-  res.setHeader('Content-Type', 'application/json');
   helpers.getSongs(res);
 });
 
 app.get('/authorized', function(req, res, next) {
   res.redirect('/');
+});
+
+app.get('/dropbox/*', function(req, res, next) {
+  const path = req.url.substring(8, req.url.length);
+  if (path.length > 0) {
+    helpers.download(path, res);
+  }
 });
 
 app.post('/signin', function(req, res, next) {
