@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/derek-young/hrsf53-mvp#readme",
   "scripts": {
-    "start": "webpack --config webpack.config.js --watch"
+    "start": "node server/server.js"
   },
   "dependencies": {
     "bcrypt": "^1.0.2",
